@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:todoey/models/task.dart';
 
-class AddTask extends StatelessWidget {
-  const AddTask({Key? key}) : super(key: key);
+class AddTaskScreen extends StatelessWidget {
 
+  late String taskTitle;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -32,7 +33,9 @@ class AddTask extends StatelessWidget {
             ),
             TextField(
               textAlign: TextAlign.center,
-              onChanged: (value) {},
+              onChanged: (value) {
+                taskTitle = value;
+              },
             ),
             const SizedBox(
               height: 50.0,
@@ -41,7 +44,9 @@ class AddTask extends StatelessWidget {
               style: const ButtonStyle(
                 backgroundColor: MaterialStatePropertyAll(Colors.lightBlueAccent),
               ),
-              onPressed: () {},
+              onPressed: () {
+
+              },
               child: const Text(
                 'Create',
                 style: TextStyle(

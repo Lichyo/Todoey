@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:todoey/screens/add_task.dart';
+import 'package:todoey/screens/add_task_screen.dart';
+import 'package:todoey/widgets/task_list.dart';
 
 class TaskScreen extends StatelessWidget {
   const TaskScreen({Key? key}) : super(key: key);
@@ -11,7 +12,7 @@ class TaskScreen extends StatelessWidget {
         backgroundColor: Colors.lightBlueAccent,
         onPressed: () {
           showModalBottomSheet(
-              context: context, builder: (context) => const AddTask());
+              context: context, builder: (context) => AddTaskScreen());
         },
         child: const Icon(
           Icons.add,
@@ -20,61 +21,64 @@ class TaskScreen extends StatelessWidget {
       ),
       backgroundColor: Colors.lightBlueAccent,
       body: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            SafeArea(
-              child: Padding(
-                padding: const EdgeInsets.only(top: 40.0, left: 30.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
-                    CircleAvatar(
-                      radius: 40.0,
-                      backgroundColor: Colors.white,
-                      child: Icon(
-                        Icons.menu,
-                        size: 50.0,
-                        color: Colors.lightBlueAccent,
-                      ),
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          SafeArea(
+            child: Padding(
+              padding: const EdgeInsets.only(top: 40.0, left: 30.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: const [
+                  CircleAvatar(
+                    radius: 40.0,
+                    backgroundColor: Colors.white,
+                    child: Icon(
+                      Icons.menu,
+                      size: 50.0,
+                      color: Colors.lightBlueAccent,
                     ),
-                    SizedBox(
-                      height: 30.0,
-                    ),
-                    Text(
-                      'Todoey',
-                      style: TextStyle(
-                        fontSize: 60.0,
-                        fontWeight: FontWeight.w700,
-                        color: Colors.white,
-                      ),
-                    ),
-                    Text(
-                      '12 tasks unfinished',
-                      style: TextStyle(
-                        fontSize: 18.0,
-                        color: Colors.white,
-                      ),
-                    ),
-                    SizedBox(
-                      height: 30.0,
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            Expanded(
-              child: Container(
-                decoration: const BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(30.0),
-                    topRight: Radius.circular(30.0),
                   ),
-                ),
+                  SizedBox(
+                    height: 30.0,
+                  ),
+                  Text(
+                    'Todoey',
+                    style: TextStyle(
+                      fontSize: 60.0,
+                      fontWeight: FontWeight.w700,
+                      color: Colors.white,
+                    ),
+                  ),
+                  Text(
+                    '12 tasks unfinished',
+                    style: TextStyle(
+                      fontSize: 18.0,
+                      color: Colors.white,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 30.0,
+                  ),
+                ],
               ),
             ),
-          ],
-        ),
+          ),
+          Expanded(
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 30.0),
+              decoration: const BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(30.0),
+                  topRight: Radius.circular(30.0),
+                ),
+              ),
+              child: TaskList(),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
+
