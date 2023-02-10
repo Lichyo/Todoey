@@ -3,10 +3,10 @@ import 'task.dart';
 import 'dart:collection';
 
 class TaskData extends ChangeNotifier {
-  List<Task> _tasks = [
-    Task(taskTitle: 'Mission 1'),
-    Task(taskTitle: 'Mission 2'),
-    Task(taskTitle: 'Mission 3'),
+  final List<Task> _tasks = [
+    Task(taskTitle: 'Create your own account'),
+    Task(taskTitle: 'Pressed the Button to Create your first Task'),
+    Task(taskTitle: 'Long press to delete the task'),
   ];
 
   int get taskCount {
@@ -24,6 +24,11 @@ class TaskData extends ChangeNotifier {
 
   void updateTask(Task task) {
     task.toggleDone();
+    notifyListeners();
+  }
+
+  void removeTask(Task task) {
+    _tasks.remove(task);
     notifyListeners();
   }
 }
