@@ -21,15 +21,7 @@ class _TaskScreenState extends State<TaskScreen> {
         onPressed: () {
           showModalBottomSheet(
             context: context,
-            builder: (context) => AddTaskScreen(
-              taskCallback: (String taskTitle) {
-                setState(() {
-                  Provider.of<TaskData>(context)
-                      .tasks
-                      .add(Task(taskTitle: 'Mission'));
-                });
-              },
-            ),
+            builder: (context) => AddTaskScreen(),
           );
         },
         child: const Icon(
@@ -68,7 +60,7 @@ class _TaskScreenState extends State<TaskScreen> {
                     ),
                   ),
                   Text(
-                    '${Provider.of<TaskData>(context).tasks.length} tasks unfinished',
+                    '${Provider.of<TaskData>(context).taskCount} tasks unfinished',
                     style: const TextStyle(
                       fontSize: 18.0,
                       color: Colors.white,
@@ -91,7 +83,7 @@ class _TaskScreenState extends State<TaskScreen> {
                   topRight: Radius.circular(30.0),
                 ),
               ),
-              child: TaskList(),
+              child: const TaskList(),
             ),
           ),
         ],
