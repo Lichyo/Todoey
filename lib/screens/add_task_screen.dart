@@ -3,7 +3,11 @@ import 'package:todoey/models/task.dart';
 
 class AddTaskScreen extends StatelessWidget {
 
+  AddTaskScreen({required this.taskCallback});
+
   late String taskTitle;
+  final Function taskCallback;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -45,7 +49,8 @@ class AddTaskScreen extends StatelessWidget {
                 backgroundColor: MaterialStatePropertyAll(Colors.lightBlueAccent),
               ),
               onPressed: () {
-
+                taskCallback(taskTitle);
+                Navigator.pop(context);
               },
               child: const Text(
                 'Create',
