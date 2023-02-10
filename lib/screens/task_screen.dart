@@ -39,13 +39,18 @@ class _TaskScreenState extends State<TaskScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const CircleAvatar(
-                    radius: 40.0,
-                    backgroundColor: Colors.white,
-                    child: Icon(
-                      Icons.menu,
-                      size: 50.0,
-                      color: Colors.lightBlueAccent,
+                  GestureDetector(
+                    onTap: (){
+                      
+                    },
+                    child: const CircleAvatar(
+                      radius: 40.0,
+                      backgroundColor: Colors.white,
+                      child: Icon(
+                        Icons.menu,
+                        size: 50.0,
+                        color: Colors.lightBlueAccent,
+                      ),
                     ),
                   ),
                   const SizedBox(
